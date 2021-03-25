@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<title>JSON Demo</title>
+	<meta charset="utf-8"/>
+	<script>
+		function loadMessages() {
+			var ajaxRequest = new XMLHttpRequest();
+			ajaxRequest.open("GET", "curl https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49", true);
+			
+			ajaxRequest.onreadystatechange = function() {
+				document.getElementById("messages").innerHTML = "Readystate changed"; 
+			
+				if(ajaxRequest.readyState == 1){
+					document.getElementById("messages").innerHTML = "Connected";
+				}
+				else if(ajaxRequest.readyState == 2){
+				document.getElementById("messages").innerHTML = "Request received by server.";
+				}
+				else if(ajaxRequest.readyState == 3){
+					document.getElementById("messages").innerHTML = "Processing request.";
+				}
+				else if(ajaxRequest.readyState == 4){
+					document.getElementById("messages").innerHTML =  "Done loading! " + ajaxRequest.status;
+				} else {
+					document.getElementById("messages").innerHTML =  "Wrong";
+				}
+			}
+			
+			ajaxRequest.send();
+		};
+		
+	</script>
+</head>
+
+
+<body onload="loadMessages()">
+
+	<h1>JSON Data</h1>
+	<div id="messages">Loading...</div>
+</body>
+</html>
