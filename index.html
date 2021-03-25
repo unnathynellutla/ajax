@@ -27,7 +27,7 @@
 						films = JSON.parse(result);
 						strHTML = "<ul>";
 						films.forEach(function(film) { 
-					 		strHTML += "<li>" + film.title + " : <br>" + film.description + "</li>";
+					 		strHTML += "<li>" + film.title + " : <br>" + film.description + "<br></li>";
 						}) 
 						strHTML += "</ul>";
 						document.getElementById("messages").innerHTML = strHTML;
