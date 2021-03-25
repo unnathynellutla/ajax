@@ -1,27 +1,27 @@
 <!doctype html>
 <html>
 <head>
-	<title>JSON Demo</title>
+	<title>Studio Ghibli API Data</title>
 	<meta charset="utf-8"/>
 	<script>
-		function loadMessages() {
+		function loadMovies() {
 			var ajaxRequest = new XMLHttpRequest();
 			ajaxRequest.open("GET", "https://ghibliapi.herokuapp.com/films", true);
 			
 			ajaxRequest.onreadystatechange = function() {
-				document.getElementById("messages").innerHTML = "Readystate changed"; 
+				document.getElementById("movies").innerHTML = "Readystate changed"; 
 			
 				if(ajaxRequest.readyState == 1){
-					document.getElementById("messages").innerHTML = "Connected";
+					document.getElementById("movies").innerHTML = "Connected";
 				}
 				else if(ajaxRequest.readyState == 2){
-				document.getElementById("messages").innerHTML = "Request received by server.";
+				document.getElementById("movies").innerHTML = "Request received by server.";
 				}
 				else if(ajaxRequest.readyState == 3){
-					document.getElementById("messages").innerHTML = "Processing request.";
+					document.getElementById("movies").innerHTML = "Processing request.";
 				}
 				else if(ajaxRequest.readyState == 4){
-					document.getElementById("messages").innerHTML =  "Done loading! " + ajaxRequest.status;
+					document.getElementById("movies").innerHTML =  "Done loading! " + ajaxRequest.status;
 					if(ajaxRequest.status == 200){
 						result = ajaxRequest.responseText;
 						films = JSON.parse(result);
@@ -30,10 +30,10 @@
 					 		strHTML += "<li>" + film.title + "<br>" + film.description + "</li>";
 						}) 
 						strHTML += "</ul>";
-						document.getElementById("messages").innerHTML = strHTML;
+						document.getElementById("movies").innerHTML = strHTML;
 					}
 				} else {
-					document.getElementById("messages").innerHTML =  "Wrong";
+					document.getElementById("movies").innerHTML =  "Wrong";
 				}
 			}
 			
@@ -44,9 +44,9 @@
 </head>
 
 
-<body onload="loadMessages()">
+<body onload="loadMovies()">
 
-	<h1>JSON Data</h1>
-	<div id="messages">Loading...</div>
+	<h1>Studio Ghibli Movies</h1>
+	<div id="movies">Loading...</div>
 </body>
 </html>
