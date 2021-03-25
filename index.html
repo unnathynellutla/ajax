@@ -23,7 +23,14 @@
 				else if(ajaxRequest.readyState == 4){
 					document.getElementById("messages").innerHTML =  "Done loading! " + ajaxRequest.status;
 					if(ajaxRequest.status == 200){
-						document.getElementById("messages").innerHTML = ajaxRequest.responseText;
+						result = ajaxRequest.responseText;
+						films = JSON.parse(result);
+						strHTML = "<ul>";
+						films.forEach(function(film) { 
+					 		strHTML += "<li>" + film.title + " : " + film.description + "</li>";
+						}) 
+						strHTML += "</ul>";
+						document.getElementById("messages").innerHTML = strHTML;
 					}
 				} else {
 					document.getElementById("messages").innerHTML =  "Wrong";
