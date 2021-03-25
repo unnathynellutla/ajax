@@ -6,7 +6,7 @@
 	<script>
 		function loadMessages() {
 			var ajaxRequest = new XMLHttpRequest();
-			ajaxRequest.open("GET", "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=apiKey", true);
+			ajaxRequest.open("GET", "https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49", true);
 			
 			ajaxRequest.onreadystatechange = function() {
 				document.getElementById("messages").innerHTML = "Readystate changed"; 
