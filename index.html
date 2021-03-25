@@ -9,19 +9,19 @@
 			ajaxRequest.open("GET", "https://ghibliapi.herokuapp.com/films", true);
 			
 			ajaxRequest.onreadystatechange = function() {
-				document.getElementById("movies").innerHTML = "Readystate changed"; 
+				console.log("Readystate changed"); 
 			
 				if(ajaxRequest.readyState == 1){
-					document.getElementById("movies").innerHTML = "Connected";
+					console.log("Connected");
 				}
 				else if(ajaxRequest.readyState == 2){
-				document.getElementById("movies").innerHTML = "Request received by server.";
+					console.log("Request received by server.");
 				}
 				else if(ajaxRequest.readyState == 3){
-					document.getElementById("movies").innerHTML = "Processing request.";
+					console.log("Processing request.");
 				}
 				else if(ajaxRequest.readyState == 4){
-					document.getElementById("movies").innerHTML =  "Done loading! " + ajaxRequest.status;
+					console.log("Done loading!");
 					if(ajaxRequest.status == 200){
 						result = ajaxRequest.responseText;
 						films = JSON.parse(result);
@@ -31,6 +31,11 @@
 						}) 
 						strHTML += "</ul>";
 						document.getElementById("movies").innerHTML = strHTML;
+					else if (ajaxRequest.status != 200) {
+
+						document.getElementById("data").innerHTML = "Something is wrong";
+
+						}
 					}
 				} else {
 					document.getElementById("movies").innerHTML =  "Wrong";
