@@ -6,7 +6,7 @@
 	<script>
 		function loadMessages() {
 			var ajaxRequest = new XMLHttpRequest();
-			ajaxRequest.open("GET", "'https://ghibliapi.herokuapp.com/films'", true);
+			ajaxRequest.open("GET", "https://ghibliapi.herokuapp.com/films", true);
 			
 			ajaxRequest.onreadystatechange = function() {
 				document.getElementById("messages").innerHTML = "Readystate changed"; 
