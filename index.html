@@ -31,12 +31,13 @@
 						}) 
 						strHTML += "</ul>";
 						document.getElementById("movies").innerHTML = strHTML;
+					}
 					else if (ajaxRequest.status != 200) {
 
 						document.getElementById("movies").innerHTML = "Something is wrong";
 
 						}
-					}
+					
 				} else {
 					document.getElementById("movies").innerHTML =  "Wrong";
 				}
