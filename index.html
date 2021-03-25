@@ -22,6 +22,9 @@
 				}
 				else if(ajaxRequest.readyState == 4){
 					document.getElementById("messages").innerHTML =  "Done loading! " + ajaxRequest.status;
+					if(ajaxRequest.status == 200){
+						document.getElementById("messages").innerHTML = ajaxRequest.responseText;
+					}
 				} else {
 					document.getElementById("messages").innerHTML =  "Wrong";
 				}
